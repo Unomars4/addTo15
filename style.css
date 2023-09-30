@@ -36,6 +36,7 @@ h1 {
 
 section {
     height: 5rem;
+    cursor: pointer;
 }
 
 
