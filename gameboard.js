@@ -46,6 +46,10 @@ const GameBoard = (() => {
         if (index > -1) board.splice(index, 1);
     }
 
+    const updateCounts = (n) => {
+
+    }
+
     return {updateNumbers, updateBoard};
 })();
 
