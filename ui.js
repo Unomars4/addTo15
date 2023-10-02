@@ -1,5 +1,6 @@
 //Handles all user interactions of game
 import Game from "./game";
+import Ai from "./ai";
 
 const Ui = (() => {
 
