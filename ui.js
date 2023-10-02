@@ -19,7 +19,7 @@ const Ui = (() => {
         const activePlayer = Game.getActivePlayer();
         if (!Game.getGameIsOver()) {
             event.target.removeEventListener("click", addToPlayer);
-            const num = event.target.dataset.n;
+            const num = Number(event.target.dataset.n);
             Game.addToPlayer(activePlayer, num);
             takeNumberFromBoard(activePlayer, event.target);
             Game.switchActivePlayer();

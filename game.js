@@ -11,6 +11,7 @@ const Game = (() => {
     const addToPlayer = (activePlayer, num) => {
         GameBoard.updateNumbers(activePlayer, num);
         GameBoard.updateBoard(num);
+        GameBoard.updateCounts(activePlayer, num);
     }
     const endGame = () => gameIsOver = true;
     const switchActivePlayer = () => {

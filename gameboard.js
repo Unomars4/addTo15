@@ -35,7 +35,7 @@ const GameBoard = (() => {
 
     const updateNumbers = (person, n) => {
         if (person == "Player") {
-            player.push(n)
+            player.push(n);
         } else {
             computer.push(n);
         }
@@ -43,14 +43,23 @@ const GameBoard = (() => {
 
     const updateBoard = (n) => {
         let index = board.indexOf(n);
-        if (index > -1) board.splice(index, 1);
+        if (index > -1) {
+            board.splice(index, 1);
+        };
     }
 
-    const updateCounts = (n) => {
-
+    const updateCounts = (person, n) => {
+        const holder = occupied[n - 1];
+        for (let i = 0; i < holder.length; i++) {
+            if (person == "Player") {
+                pgCount[holder[i] - 1]++;
+            } else {
+                cpCount[holder[i] - 1]++;
+            }
+        }
     }
 
-    return {updateNumbers, updateBoard};
+    return {updateNumbers, updateBoard, updateCounts};
 })();
 
 export default GameBoard;
