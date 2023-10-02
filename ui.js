@@ -2,9 +2,10 @@
 import Game from "./game";
 
 const Ui = (() => {
+
     const setUpBoard = () => {
         const board = document.querySelector(".boardOptions");
-        for (const i = 1; i < 10; i++) {
+        for (let i = 1; i < 10; i++) {
             const element = document.createElement("span");
             element.classList.add("number");
             element.addEventListener("click", addToPlayer);
@@ -12,6 +13,7 @@ const Ui = (() => {
             element.dataset.n = i;
             board.appendChild(element);
         };
+        console.log("create 9 elements")
     }
 
     const addToPlayer = () => {

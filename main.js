@@ -1,6 +1,7 @@
 import Ui from "./ui";
+
 const app = document.querySelector('#app');
-app.addEventListener("load", () => console.log("working"));
+
 app.innerHTML = `
   <div>
     <h1 class="title">Player against Computer</h1>
@@ -25,6 +26,9 @@ app.innerHTML = `
     <hr/>
   </div>
 `;
+
+app.addEventListener("load", Ui.init());
+
 
 
 
