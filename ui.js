@@ -17,9 +17,23 @@ const Ui = (() => {
 
     const addToPlayer = () => {
         const activePlayer = Game.getActivePlayer();
-        console.log(activePlayer, event.target.dataset.n);
-        Game.switchActivePlayer();
+        if (!Game.getGameIsOver()) {
+            event.target.removeEventListener("click", addToPlayer);
+            const num = event.target.dataset.n;
+            Game.addToPlayer(activePlayer, num);
+            takeNumberFromBoard(activePlayer, event.target);
+            Game.switchActivePlayer();
+        }
     }
+
+    const takeNumberFromBoard = (player, el) => {
+        const removedEl = document.querySelector(".boardOptions").removeChild(el);
+        if (player == "Player") {
+            document.querySelector(".playerPicks").appendChild(removedEl);
+        } else {
+            document.querySelector(".aiPicks").appendChild(removedEl);
+        }
+    };
 
     const init = () => {
         setUpBoard();

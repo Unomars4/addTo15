@@ -42,7 +42,7 @@ const GameBoard = (() => {
     };
 
     const updateBoard = (n) => {
-        let index = board.findIndex(n);
+        let index = board.indexOf(n);
         if (index > -1) board.splice(index, 1);
     }
 

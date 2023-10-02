@@ -10,14 +10,14 @@ const Game = (() => {
 
     const addToPlayer = (activePlayer, num) => {
         GameBoard.updateNumbers(activePlayer, num);
-        GameBoard.updateBoard(n);
+        GameBoard.updateBoard(num);
     }
     const endGame = () => gameIsOver = true;
     const switchActivePlayer = () => {
         activePlayer = activePlayer == players[0] ? players[1] : players[0];
     }
 
-    return {getActivePlayer, switchActivePlayer, endGame, getGameIsOver};
+    return {getActivePlayer, switchActivePlayer, endGame, getGameIsOver, addToPlayer};
 })();
 
 export default Game;
