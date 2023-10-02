@@ -33,15 +33,20 @@ const GameBoard = (() => {
     const pgCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     const cpCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-    const updateNumbers(person , n) => {
-        if (person == "Player"){
+    const updateNumbers = (person, n) => {
+        if (person == "Player") {
             player.push(n)
-        }else{
+        } else {
             computer.push(n);
         }
     };
 
-    return {updateNumbers};
+    const updateBoard = (n) => {
+        let index = board.findIndex(n);
+        if (index > -1) board.splice(index, 1);
+    }
+
+    return {updateNumbers, updateBoard};
 })();
 
 export default GameBoard;
