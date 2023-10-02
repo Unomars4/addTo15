@@ -13,16 +13,16 @@ const Ui = (() => {
             element.dataset.n = i;
             board.appendChild(element);
         };
-        console.log("create 9 elements")
     }
 
     const addToPlayer = () => {
-
+        const activePlayer = Game.getActivePlayer();
+        console.log(activePlayer, event.target.dataset.n);
+        Game.switchActivePlayer();
     }
 
     const init = () => {
         setUpBoard();
-        console.log("Setting up the board.");
     }
 
     return {init};

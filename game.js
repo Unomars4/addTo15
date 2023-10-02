@@ -3,12 +3,19 @@ import GameBoard from "./gameboard"
 
 const Game = (() => {
     const players = ["Player", "Computer"]
-    const activePlayer = players[0];
+    let activePlayer = players[0], gameIsOver = false;
 
+    const getActivePlayer = () => activePlayer;
+    const getGameIsOver = () => gameIsOver;
+
+
+    const endGame = () => gameIsOver = true;
     const switchActivePlayer = () => {
-        return activePlayer == players[0] ? players[1] : players[0];
+        activePlayer = activePlayer == players[0] ? players[1] : players[0];
     }
-    return {};
+
+
+    return {getActivePlayer, switchActivePlayer};
 })();
 
 export default Game;

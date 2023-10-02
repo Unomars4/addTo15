@@ -33,7 +33,15 @@ const GameBoard = (() => {
     const pgCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     const cpCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-    return {};
+    const updateNumbers(person , n) => {
+        if (person == "Player"){
+            player.push(n)
+        }else{
+            computer.push(n);
+        }
+    };
+
+    return {updateNumbers};
 })();
 
 export default GameBoard;
