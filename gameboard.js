@@ -32,6 +32,7 @@ const GameBoard = (() => {
     const pgCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     const cpCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+    const getBoard = () => board;
     const getCpCount = () => cpCount;
     const getPgCount = () => pgCount;
 
@@ -67,7 +68,7 @@ const GameBoard = (() => {
         return playersWon || computersWon;
     };
 
-    return {updateNumbers, updateBoard, updateCounts, someoneHasWon, getCpCount, getPgCount};
+    return {updateNumbers, updateBoard, updateCounts, someoneHasWon, getCpCount, getPgCount, getBoard};
 })();
 
 export default GameBoard;

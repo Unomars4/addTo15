@@ -1,4 +1,3 @@
-//Handles all user interactions of game
 import Game from "./game";
 import Ai from "./ai";
 
@@ -24,6 +23,7 @@ const Ui = (() => {
             Game.addToPlayer(activePlayer, num);
             takeNumberFromBoard(activePlayer, event.target);
             Game.switchActivePlayer();
+            setTimeout(computerMove, 2000);
         }
     }
 
@@ -36,8 +36,19 @@ const Ui = (() => {
         }
     };
 
-    const updateStatus = () => {
-
+    const computerMove = () => {
+        const options = document.querySelectorAll(".number");
+        let index = Ai.randomMoves();
+        console.log("Computer chose index:", index);
+        let chosenElement = Array.from(options)[index];
+        const activePlayer = Game.getActivePlayer();
+        if (!Game.getGameIsOver()) {
+            chosenElement.removeEventListener("click", addToPlayer);
+            const num = Number(chosenElement.dataset.n);
+            Game.addToPlayer(activePlayer, num);
+            takeNumberFromBoard(activePlayer, chosenElement);
+            Game.switchActivePlayer();
+        }
     };
 
     const init = () => {
