@@ -57,9 +57,15 @@ const GameBoard = (() => {
                 cpCount[holder[i] - 1]++;
             }
         }
-    }
+    };
 
-    return {updateNumbers, updateBoard, updateCounts};
+    const someoneHasWon = () => {
+        const playersWon = pgCount.some(value => value >= 3);
+        const computersWon = cpCount.some(value => value >= 3);
+        return playersWon || computersWon;
+    };
+
+    return {updateNumbers, updateBoard, updateCounts, someoneHasWon};
 })();
 
 export default GameBoard;
