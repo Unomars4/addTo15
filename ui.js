@@ -36,6 +36,10 @@ const Ui = (() => {
         }
     };
 
+    const updateStatus = () => {
+
+    };
+
     const init = () => {
         setUpBoard();
     }

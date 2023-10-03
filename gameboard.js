@@ -1,4 +1,3 @@
-//Handles all the gameboard logic and functionality
 const GameBoard = (() => {
     //3 numbers that add up to 15
     const groups = [
@@ -20,7 +19,7 @@ const GameBoard = (() => {
         [1, 5],
         [1, 6, 8],
         [2, 5, 7, 8],
-        [3, 4, 7],
+        [3, 4, 8],
         [3, 5],
         [1, 4, 7],
         [2, 6]
@@ -32,6 +31,9 @@ const GameBoard = (() => {
     //influence ai decisions, check game won/lost
     const pgCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     const cpCount = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    const getCpCount = () => cpCount;
+    const getPgCount = () => pgCount;
 
     const updateNumbers = (person, n) => {
         if (person == "Player") {
@@ -52,9 +54,9 @@ const GameBoard = (() => {
         const holder = occupied[n - 1];
         for (let i = 0; i < holder.length; i++) {
             if (person == "Player") {
-                pgCount[holder[i] - 1]++;
+                pgCount[holder[i]]++;
             } else {
-                cpCount[holder[i] - 1]++;
+                cpCount[holder[i]]++;
             }
         }
     };
@@ -65,7 +67,7 @@ const GameBoard = (() => {
         return playersWon || computersWon;
     };
 
-    return {updateNumbers, updateBoard, updateCounts, someoneHasWon};
+    return {updateNumbers, updateBoard, updateCounts, someoneHasWon, getCpCount, getPgCount};
 })();
 
 export default GameBoard;

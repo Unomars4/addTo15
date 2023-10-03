@@ -3,22 +3,24 @@ import GameBoard from "./gameboard"
 
 const Game = (() => {
     const players = ["Player", "Computer"]
-    let activePlayer = players[0], gameIsOver = false;
+
+    let activePlayer = players[0];
 
     const getActivePlayer = () => activePlayer;
-    const getGameIsOver = () => gameIsOver;
+
+    const getGameIsOver = () => GameBoard.someoneHasWon();
 
     const addToPlayer = (activePlayer, num) => {
         GameBoard.updateNumbers(activePlayer, num);
         GameBoard.updateBoard(num);
         GameBoard.updateCounts(activePlayer, num);
     }
-    const endGame = () => gameIsOver = true;
+
     const switchActivePlayer = () => {
         activePlayer = activePlayer == players[0] ? players[1] : players[0];
     }
 
-    return {getActivePlayer, switchActivePlayer, endGame, getGameIsOver, addToPlayer};
+    return {getActivePlayer, switchActivePlayer, getGameIsOver, addToPlayer};
 })();
 
 export default Game;
