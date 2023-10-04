@@ -6,9 +6,7 @@ add up to 15.
 
 ## Features
 
-*
-* 
-* 
+* An AI opponent
 
 ## Links
 
