@@ -23,6 +23,7 @@ const Ui = (() => {
             Game.addToPlayer(activePlayer, num);
             takeNumberFromBoard(activePlayer, event.target);
             Game.switchActivePlayer();
+            updateStatus();
             setTimeout(computerMove, 2000);
         }
     }
@@ -49,11 +50,22 @@ const Ui = (() => {
             Game.addToPlayer(activePlayer, num);
             takeNumberFromBoard(activePlayer, chosenElement);
             Game.switchActivePlayer();
+            updateStatus();
         }
     };
 
+    const updateStatus = () => {
+        const statusLine = document.querySelector(".status");
+        if (Game.getActivePlayer() == "Player") {
+            statusLine.textContent = "Your turn";
+        } else {
+            statusLine.textContent = "Computers turn";
+        }
+    }
+
     const init = () => {
         setUpBoard();
+        updateStatus();
     }
 
     return {init};
