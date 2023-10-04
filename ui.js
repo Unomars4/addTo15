@@ -7,7 +7,7 @@ const Ui = (() => {
         const board = document.querySelector(".boardOptions");
         for (let i = 1; i < 10; i++) {
             const element = document.createElement("span");
-            element.classList.add("number");
+            element.classList.add("number", "selectable");
             element.addEventListener("click", addToPlayer);
             element.textContent = i.toString();
             element.dataset.n = i;
@@ -37,13 +37,14 @@ const Ui = (() => {
     };
 
     const computerMove = () => {
-        const options = document.querySelectorAll(".number");
-        let index = Ai.randomMoves();
-        console.log("Computer chose index:", index);
+        const options = document.querySelectorAll(".selectable");
+        let index = Ai.smartChoice();
         let chosenElement = Array.from(options)[index];
+        console.log("Computer chose index", index, "Which is element", chosenElement.dataset.n);
         const activePlayer = Game.getActivePlayer();
         if (!Game.getGameIsOver()) {
             chosenElement.removeEventListener("click", addToPlayer);
+            chosenElement.classList.remove("selectable");
             const num = Number(chosenElement.dataset.n);
             Game.addToPlayer(activePlayer, num);
             takeNumberFromBoard(activePlayer, chosenElement);
