@@ -63,13 +63,11 @@ const GameBoard = (() => {
         }
     };
 
-    const someoneHasWon = () => {
-        const playersWon = pgCount.some(value => value >= 3);
-        const computersWon = cpCount.some(value => value >= 3);
-        return playersWon || computersWon;
-    };
+    const playerWon = () => pgCount.some(value => value >= 3);
+    const computerWon = () => cpCount.some(value => value >= 3);
 
-    return {updateNumbers, updateBoard, updateCounts, someoneHasWon, getCpCount, getPgCount, getBoard, getOccupied};
+
+    return {updateNumbers, updateBoard, updateCounts, playerWon, computerWon, getCpCount, getPgCount, getBoard, getOccupied};
 })();
 
 export default GameBoard;

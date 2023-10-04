@@ -8,7 +8,10 @@ const Game = (() => {
 
     const getActivePlayer = () => activePlayer;
 
-    const getGameIsOver = () => GameBoard.someoneHasWon();
+    const getGameIsOver = () => GameBoard.playerWon() || GameBoard.computerWon();
+
+    const getPlayerHasWon = () => GameBoard.playerWon();
+    const getComputerHasWon = () => GameBoard.computerWon();
 
     const addToPlayer = (activePlayer, num) => {
         GameBoard.updateNumbers(activePlayer, num);
@@ -20,7 +23,7 @@ const Game = (() => {
         activePlayer = activePlayer == players[0] ? players[1] : players[0];
     }
 
-    return {getActivePlayer, switchActivePlayer, getGameIsOver, addToPlayer};
+    return {getPlayerHasWon, getComputerHasWon, getActivePlayer, switchActivePlayer, getGameIsOver, addToPlayer};
 })();
 
 export default Game;

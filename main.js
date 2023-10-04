@@ -8,10 +8,8 @@ app.innerHTML = `
     <p class="instructions">
         Player goes first: click on a number. First to have a
         a set of 3 adding to 15 wins. Reload for new game.
-    </p>
-    <section class="statusSection">
-        <p class="status"></p>
-    </section>
+    </p>    
+    <p class="status"></p>
     <section class="aiSection">
         <p class="aiTitle">Computer</p>
         <div class="aiPicks"></div>

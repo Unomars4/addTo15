@@ -46,6 +46,9 @@ section {
     cursor: pointer;
 }
 
+.status {
+    text-align: center;
+}
 
 @media (prefers-color-scheme: light) {
     :root {

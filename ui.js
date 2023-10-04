@@ -56,10 +56,17 @@ const Ui = (() => {
 
     const updateStatus = () => {
         const statusLine = document.querySelector(".status");
-        if (Game.getActivePlayer() == "Player") {
-            statusLine.textContent = "Your turn";
+
+        if (Game.getGameIsOver() && Game.getPlayerHasWon()) {
+            statusLine.textContent = "Status: You win";
+        } else if (Game.getGameIsOver() && Game.getComputerHasWon()) {
+            statusLine.textContent = "Status: You Lose";
+        } else if (Game.getActivePlayer() == "Player" && !Game.getGameIsOver()) {
+            statusLine.textContent = "Status: Your turn";
+        } else if (Game.getActivePlayer() == "Computer" && !Game.getGameIsOver()) {
+            statusLine.textContent = "Status: Computers turn";
         } else {
-            statusLine.textContent = "Computers turn";
+            statusLine.textContent = "Status: It's a draw";
         }
     }
 
